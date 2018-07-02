@@ -19,7 +19,7 @@ void serve() {
     setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, &value, sizeof(value));
     struct sockaddr_in addr;
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(8000);
+    addr.sin_port = htons(8001);
     addr.sin_addr.s_addr = INADDR_ANY;
     *(uint64_t*)&addr.sin_zero = 0;
     bind(sock, (struct sockaddr *)&addr, sizeof(struct sockaddr_in));
@@ -31,7 +31,7 @@ void serve() {
     for (;;) {
         int c = accept(sock, (struct sockaddr *)&sa, &len);
         counter ++;
-        printf("accept #%llu", counter);
+        printf("accept #%llu\n", counter);
         char b, i = 0;
         for (;;) {
             recv(c, &b, 1, 0);
