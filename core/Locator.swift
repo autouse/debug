@@ -27,7 +27,7 @@ class Locator : NSObject, CLLocationManagerDelegate {
         print("loc fail", error)
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("loc upd, \(locations.count)")
+        //print("loc upd, \(locations.count)")
         for l in locations {
             Router.onLocationUpdate(l)
         }
